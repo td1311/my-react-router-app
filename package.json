@@ -2,11 +2,16 @@
   "name": "my-react-router-app",
   "private": true,
   "type": "module",
+  "homepage": "https://td1311.github.io/my-react-router-app/",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "rm": "rm -rf docs",
+    "mv": "mv build docs",
+    "git": "git add . && git commit && git push origin master",
+    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
   "dependencies": {
     "@react-router/node": "^7.5.3",
