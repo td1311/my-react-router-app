@@ -3,43 +3,83 @@ import logoLight from "./logo-light.svg";
 
 export function Welcome() {
   return (
-    <main className="flex items-center justify-center pt-16 pb-4">
-      <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <header className="flex flex-col items-center gap-9">
-          <div className="w-[500px] max-w-[100vw] p-4">
-            <img
-              src={logoLight}
-              alt="React Router"
-              className="block w-full dark:hidden"
-            />
-            <img
-              src={logoDark}
-              alt="React Router"
-              className="hidden w-full dark:block"
-            />
+    // <main className="flex items-center justify-center pt-16 pb-4">
+    //   <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
+    //     <header className="flex flex-col items-center gap-9">
+    //       <div className="w-[500px] max-w-[100vw] p-4">
+    //         <img
+    //           src={logoLight}
+    //           alt="React Router"
+    //           className="block w-full dark:hidden"
+    //         />
+    //         <img
+    //           src={logoDark}
+    //           alt="React Router"
+    //           className="hidden w-full dark:block"
+    //         />
+    //       </div>
+    //     </header>
+    //     <div className="max-w-[300px] w-full space-y-6 px-4">
+    //       <nav className="rounded-3xl border border-gray-200 p-6 dark:border-gray-700 space-y-4">
+    //         <p className="leading-6 text-gray-700 dark:text-gray-200 text-center">
+    //           What&apos;s next?
+    //         </p>
+    //         <ul>
+    //           {resources.map(({ href, text, icon }) => (
+    //             <li key={href}>
+    //               <a
+    //                 className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
+    //                 href={href}
+    //                 target="_blank"
+    //                 rel="noreferrer"
+    //               >
+    //                 {icon}
+    //                 {text}
+    //               </a>
+    //             </li>
+    //           ))}
+    //         </ul>
+    //       </nav>
+    //     </div>
+    //   </div>
+    // </main>
+    <main>
+      <div className="container">
+        <div className="mobile-layout">
+          <div className="notification-header">
+
+            <div className="necessities">
+              <i className="fas fa-signal"></i>
+              <i className="fas fa-wifi"></i>
+              <i className="fas fa-battery-full"></i>
+            </div>
           </div>
-        </header>
-        <div className="max-w-[300px] w-full space-y-6 px-4">
-          <nav className="rounded-3xl border border-gray-200 p-6 dark:border-gray-700 space-y-4">
-            <p className="leading-6 text-gray-700 dark:text-gray-200 text-center">
-              What&apos;s next?
-            </p>
-            <ul>
-              {resources.map(({ href, text, icon }) => (
-                <li key={href}>
-                  <a
-                    className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {icon}
-                    {text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="actions">
+            <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-bookmark"></i>
+          </div>
+          <div className="book-cover">
+            <img className="book-top" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHV4ZjE1NmJpdmwwZGlycjZ1cG9jeTk2MzNieWoxNHZsbTljYXVtZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/XdwYIsIZC4ebXmRPIE/giphy.gif" alt="book-top" />
+          </div>
+          <div className="preface">
+            <div className="content">
+              <div className="header">
+                <div className="title">The Diary of a Young Girl</div>
+                <div className="icon">
+                  <i className="fas fa-chevron-down"></i>
+                </div>
+              </div>
+              <div className="author">by Anne Frank</div>
+              <div className="body">
+                <p>
+                  also known as The Diary of Anne Frank, is a book of the writings from the Dutch-language diary kept by Anne Frank while she was in hiding for two years with her family during the Nazi occupation of the Netherlands
+                </p>
+                <p>
+                  Anne calls her diary "Kitty", so almost all of the letters are written to Kitty.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
