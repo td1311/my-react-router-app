@@ -25,19 +25,19 @@ body {
   --mobile-height: 670px;
   --mobile-radius: 25px;
   --separator-height: 500px;
-  
+
   --bg: #fdf3f2;
   --mobile-bg: #fdeae6;
   --intro-bg: #eed7d1;
   --font-color: #807b7b;
-  
+
   --transition: transform 0.7s ease-in-out;
 }
 
 .container {
   min-height: 100vh;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--bg);
@@ -62,7 +62,7 @@ body {
   color: var(--font-color);
   background-color: var(--mobile-bg);
   box-shadow: 36px 36px 50px 15px #eed7d1d1;
-  
+
   .notification-header {
     position: fixed;
     top: 5px;
@@ -74,9 +74,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     z-index: 6;
+    pointer-events: none;
   }
-  
-  .actions { 
+
+  .actions {
     position: fixed;
     top: 37px;
     width: 100%;
@@ -84,9 +85,19 @@ body {
     display: flex;
     justify-content: space-between;
     font-size: 20px;
-    z-index: 6;
+    z-index: 1;
+    pointer-events: none;
   }
-  
+
+  .book-interactive {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    position: relative;
+    /* helps manage stacking */
+    z-index: 2;
+  }
+
   .book-cover {
     position: relative;
     height: var(--separator-height);
@@ -97,10 +108,13 @@ body {
     background-color: var(--intro-bg);
     transform-style: preserve-3d;
     transform-origin: 50% 40%;
-    transition: var(--transition);
     z-index: 0;
+    transform: rotateX(0deg) scale(1);
+    transition: var(--transition);
+    will-change: transform;
+    pointer-events: auto;
   }
-  
+
   .book-top {
     width: 170px;
     position: absolute;
@@ -108,70 +122,71 @@ body {
     left: 250px;
     z-index: 5;
     transform: translateZ(0px);
+    pointer-events: auto;
   }
 
   .book-side {
     position: absolute;
-    top: 430px; 
+    top: 430px;
     left: 222px;
     transform: translateY(-15px) translateX(0px) translateZ(15px) rotateX(104deg);
   }
-  
-  .book-cover:hover {
+
+  .book-cover.open {
     transform: rotateX(75deg) translateZ(0px) scale(0.75);
   }
 
-  .book-cover:hover + .preface {
+  .preface.open {
     transform: translateY(-302px);
-    .icon {
-      transform: rotateX(180deg);
-    }
   }
-  
+
+  .preface .icon {
+    transform: rotateX(0);
+    transition: var(--transition);
+    will-change: transform;
+  }
+
+  .preface.open .icon {
+    transform: rotateX(180deg);
+  }
+
   .preface {
     height: var(--separator-height);
     padding: 50px;
+    transform: translateY(0);
     transition: var(--transition);
+    will-change: transform;
     background: white;
+    pointer-events: auto;
 
-      .header {
-        display: flex;
-        align-items: center;
-      }
+    .header {
+      display: flex;
+      align-items: center;
+    }
 
-      .title {
-        font-family: 'Quicksand', sans-serif;
-        font-size: 26px;
-        margin-bottom: 10px;
-      }
+    .title {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
 
-      .author {
-        font-family: 'Open Sans', sans-serif;
-        font-style: italic;
-        margin-bottom: 20px;
-      }
+    .author {
+      font-family: 'Open Sans', sans-serif;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
 
-      .icon {
-        transform-origin: top;
-        transition: var(--transition);
-      }
+    .icon {
+      transform-origin: top;
+      transition: var(--transition);
+    }
 
-      .body {
-        font-family: 'Quicksand', sans-serif;
-      }
+    .body {
+      font-family: 'Quicksand', sans-serif;
+    }
 
-      .body p:first-child {
-        margin-bottom: 15px;
-      }
+    .body p:first-child {
+      margin-bottom: 15px;
+    }
   }
 }
-
-/* // .container:hover > .mobile-layout .book-cover {      
-//   transform: rotateX(75deg) translateZ(3px) scale(0.75); 
-// } 
-// .container:hover >.mobile-layout .book-cover + .preface { 
-//   transform: translateY(-302px); 
-// } 
-// .container:hover > .mobile-layout .book-cover + .preface .icon { 
-//   transform: rotateX(180deg); 
-// } */
