@@ -125,19 +125,12 @@ body {
     pointer-events: auto;
   }
 
-  .book-side {
-    position: absolute;
-    top: 430px;
-    left: 222px;
-    transform: translateY(-15px) translateX(0px) translateZ(15px) rotateX(104deg);
-  }
-
   .book-cover.open {
     transform: rotateX(75deg) translateZ(0px) scale(0.75);
   }
 
   .preface.open {
-    transform: translateY(-302px);
+    transform: translateY(-352px);
   }
 
   .preface .icon {
@@ -151,7 +144,7 @@ body {
   }
 
   .preface {
-    height: var(--separator-height);
+    height: 550px;
     padding: 50px;
     transform: translateY(0);
     transition: var(--transition);
